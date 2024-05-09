@@ -16,6 +16,7 @@ from mtcnn import MTCNN
 import csv
 import pandas as pd
 from student import Student
+from teacher_reg import Teacherregistry
 
 
 
@@ -32,15 +33,19 @@ class Login:
         question_lbl=Label(self.root,text="Select Your Role",font=('Quicksand',36),fg='black',bg='lightblue')
         question_lbl.place(relx=0.5, rely=0.3, anchor='center')
 
-        teacher_btn = Button(self.root,text="Teacher",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
+        teacher_btn = Button(self.root,command=self.teacher,cursor="hand2",text="Teacher",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
         teacher_btn.place(relx = 0.4,rely=0.4)
 
-        student_btn = Button(self.root,text="Student",command=self.student_details,font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
+        student_btn = Button(self.root,text="Student",command=self.student_details,cursor="hand2",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
         student_btn.place(relx = 0.4,rely=0.5)
 
     def student_details(self):
         self.new_window = Toplevel(self.root)
         self.app=Student(self.new_window)
+
+    def teacher(self):
+        self.new_window = Toplevel(self.root)
+        self.app=Teacherregistry(self.new_window)
 
 
 if __name__ =="__main__":

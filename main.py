@@ -6,6 +6,8 @@ import os
 from train import Train
 from attendance_files import Excel
 from attendance import Attendance2
+from teacherlogin import Login
+from studentlogin import Studentlogin
 
 
 class Attendance:
@@ -24,10 +26,10 @@ class Attendance:
         self.photoadd_button = ImageTk.PhotoImage(add_button)
 
         add_button_1= Button(self.root,image = self.photoadd_button,command=self.student_details,cursor="hand2")
-        add_button_1.place(relx=0.25, rely=0.3, anchor='center',width=220,height=220)
+        add_button_1.place(relx=0.20, rely=0.3, anchor='center',width=220,height=220)
 
         add_button_2 = Button(self.root,text="Student Details",command=self.student_details,cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        add_button_2.place(relx=0.25, rely=0.42, anchor='center',width=220,height=40)
+        add_button_2.place(relx=0.20, rely=0.42, anchor='center',width=220,height=40)
 
         #extra
     
@@ -38,10 +40,10 @@ class Attendance:
         self.photoface_detect_button = ImageTk.PhotoImage(face_detect_button)
 
         face_detect_button_1 = Button(self.root,command=self.face_recog,image = self.photoface_detect_button,cursor="hand2",bg="white")
-        face_detect_button_1.place(relx=0.5, rely=0.3, anchor='center',width=220,height=220)
+        face_detect_button_1.place(relx=0.40, rely=0.3, anchor='center',width=220,height=220)
 
         face_detect_button_2 = Button(self.root,command=self.face_recog,text="Take Attendance",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        face_detect_button_2.place(relx=0.5, rely=0.42, anchor='center',width=220,height=40)
+        face_detect_button_2.place(relx=0.40, rely=0.42, anchor='center',width=220,height=40)
 
         #attendance button
         attendance_button = Image.open(r"images\attendance3.png")
@@ -49,10 +51,21 @@ class Attendance:
         self.photoattendance_button = ImageTk.PhotoImage(attendance_button)
 
         attendance_button_1 = Button(self.root,command=self.attendance,image = self.photoattendance_button,cursor="hand2",bg="white")
-        attendance_button_1.place(relx=0.75, rely=0.3, anchor='center',width=220,height=220)
+        attendance_button_1.place(relx=0.60, rely=0.3, anchor='center',width=220,height=220)
 
         attendance_button_2 = Button(self.root,command=self.attendance,text="Generate Files",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        attendance_button_2.place(relx=0.75, rely=0.42, anchor='center',width=220,height=40)
+        attendance_button_2.place(relx=0.60, rely=0.42, anchor='center',width=220,height=40)
+
+        #attendance button
+        student_button = Image.open(r"images\student.png")
+        student_button = student_button.resize((220,220))
+        self.photostudent_button = ImageTk.PhotoImage(student_button)
+
+        student_button_1 = Button(self.root,image = self.photostudent_button,command=self.studentlog,cursor="hand2",bg="white")
+        student_button_1.place(relx=0.80, rely=0.3, anchor='center',width=220,height=220)
+
+        student_button_2 = Button(self.root,text="Student",cursor="hand2",command=self.studentlog,font=('Quicksand',15),bg='Crimson',fg='white')
+        student_button_2.place(relx=0.80, rely=0.42, anchor='center',width=220,height=40)
 
 
 
@@ -62,30 +75,40 @@ class Attendance:
         self.phototrain_button = ImageTk.PhotoImage(train_button)
 
         train_button_1 = Button(self.root,command=self.train_data,image = self.phototrain_button,cursor="hand2",bg="white")
-        train_button_1.place(relx=0.25, rely=0.7, anchor='center',width=220,height=220)
+        train_button_1.place(relx=0.20, rely=0.7, anchor='center',width=220,height=220)
 
         train_button_2 = Button(self.root,command=self.train_data,text="Train",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        train_button_2.place(relx=0.25, rely=0.82, anchor='center',width=220,height=40)
+        train_button_2.place(relx=0.20, rely=0.82, anchor='center',width=220,height=40)
 
         #photos
         photo_button = Image.open(r"images\photos.png")
         photo_button = photo_button.resize((220,220))
         self.photophoto_button = ImageTk.PhotoImage(photo_button)
         photo_button_1 = Button(self.root,image = self.photophoto_button,command=self.open_image,cursor="hand2",bg="white")
-        photo_button_1.place(relx=0.5, rely=0.7, anchor='center',width=220,height=220)
+        photo_button_1.place(relx=0.40, rely=0.7, anchor='center',width=220,height=220)
 
         photo_button_2 = Button(self.root,text="Photos",command=self.open_image,cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        photo_button_2.place(relx=0.5, rely=0.82, anchor='center',width=220,height=40)
+        photo_button_2.place(relx=0.40, rely=0.82, anchor='center',width=220,height=40)
 
         #Attendance Files
         file_button = Image.open(r"images\files.png")
         file_button = file_button.resize((220,220))
         self.photofile_button = ImageTk.PhotoImage(file_button)
         file_button_1 = Button(self.root,command=self.open_files,image = self.photofile_button,cursor="hand2",bg="white")
-        file_button_1.place(relx=0.75, rely=0.7, anchor='center',width=220,height=220)
+        file_button_1.place(relx=0.60, rely=0.7, anchor='center',width=220,height=220)
 
         file_button_2 = Button(self.root,command=self.open_files,text="Attendance Files",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
-        file_button_2.place(relx=0.75, rely=0.82, anchor='center',width=220,height=40)
+        file_button_2.place(relx=0.60, rely=0.82, anchor='center',width=220,height=40)
+
+        #Attendance Files
+        teacher_button = Image.open(r"images\teacher.png")
+        teacher_button = teacher_button.resize((220,220))
+        self.phototeacher_button = ImageTk.PhotoImage(teacher_button)
+        teacher_button_1 = Button(self.root,command=self.teacher,image = self.phototeacher_button,cursor="hand2",bg="white")
+        teacher_button_1.place(relx=0.80, rely=0.7, anchor='center',width=220,height=220)
+
+        teacher_button_2 = Button(self.root,command=self.teacher,text="Teacher",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
+        teacher_button_2.place(relx=0.80, rely=0.82, anchor='center',width=220,height=40)
         
         close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='#FFC470',fg='white',borderwidth=5)
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
@@ -119,6 +142,14 @@ class Attendance:
     def attendance(self):
         self.new_window  = Toplevel(self.root)
         self.app = Excel(self.new_window)
+
+    def teacher(self):
+        self.new_window  = Toplevel(self.root)
+        self.app = Login(self.new_window)
+
+    def studentlog(self):
+        self.new_window  = Toplevel(self.root)
+        self.app = Studentlogin(self.new_window)
 
     def exit(self):
         self.root.destroy()
