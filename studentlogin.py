@@ -16,6 +16,8 @@ from mtcnn import MTCNN
 import csv
 import pandas as pd
 from student import Student
+from loginstudent import StudentLogin
+
 
 
 
@@ -26,21 +28,33 @@ class Studentlogin:
         self.root.title('Login')
         self.root.configure(background='lightblue')
 
-        name_lbl=Label(self.root,text="Student Sign Up / Login",font=('Quicksand',36),fg='black',bg='lightblue')
+        name_lbl=Label(self.root,text="Student Login",font=('Quicksand',36),fg='black',bg='lightblue')
         name_lbl.place(relx=0.5, rely=0.05, anchor='center')
 
-        student_register_btn = Button(self.root,command=self.register,text="Student Registration",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
-        student_register_btn.place(relx = 0.4,rely=0.4)
+        student_button = Image.open(r"images\student.png")
+        student_button = student_button.resize((220,220))
+        self.photostudent_button = ImageTk.PhotoImage(student_button)
+        student_button_1 = Button(self.root,command=self.login,image = self.photostudent_button,cursor="hand2",bg="white")
+        student_button_1.place(relx=0.50, rely=0.45, anchor='center',width=220,height=220)
 
-        student_login_btn = Button(self.root,command=self.login,text="Student Login",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
-        student_login_btn.place(relx = 0.4,rely=0.5)
+        student_button_2 = Button(self.root,command=self.login,text="Student",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
+        student_button_2.place(relx=0.50, rely=0.57, anchor='center',width=220,height=40)
+        
 
-    def register(self):
-        self.new_window = Toplevel(self.root)
-        self.app = Student(self.new_window)
+        '''student_login_btn = Button(self.root,command=self.login,text="Student Login",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
+        student_login_btn.place(relx = 0.4,rely=0.5)'''
+
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
+        close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
+
+
+    def exit(self):
+        self.root.destroy()
+
 
     def login(self):
-        pass
+        self.new_window = Toplevel(self.root)
+        self.app = StudentLogin(self.new_window)
 
 if __name__ =="__main__":
     root=Tk()

@@ -8,6 +8,7 @@ from attendance_files import Excel
 from attendance import Attendance2
 from teacherlogin import Login
 from studentlogin import Studentlogin
+from teacherlogin import Login
 
 
 class Attendance:
@@ -15,9 +16,10 @@ class Attendance:
         self.root = root
         self.root.geometry("1920x1020+0+0")
         self.root.title("Attendance")
+        self.root.configure(background='lightblue')
         
 
-        name_lbl=Label(self.root,text="ATTENDANCE SYSTEM",font=('Quicksand',36),fg='black',bg='lightblue')
+        name_lbl=Label(self.root,text="Admin",font=('Quicksand',36),fg='black',bg='lightblue')
         name_lbl.place(relx=0.5, rely=0.05, anchor='center')
 
         #Add
@@ -110,11 +112,12 @@ class Attendance:
         teacher_button_2 = Button(self.root,command=self.teacher,text="Teacher",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
         teacher_button_2.place(relx=0.80, rely=0.82, anchor='center',width=220,height=40)
         
-        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='#FFC470',fg='white',borderwidth=5)
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
 
 
-
+    def exit(self):
+        self.root.destroy()
         
 
 
@@ -151,10 +154,11 @@ class Attendance:
         self.new_window  = Toplevel(self.root)
         self.app = Studentlogin(self.new_window)
 
-    def exit(self):
-        self.root.destroy()
-        
-        
+    def teacherlog(self):
+        self.new_window = Toplevel(self.root)
+        self.app = Login(self.new_window)
+
+   
 
 
 

@@ -1,0 +1,1 @@
+student_data = ('Computer', 'TE', '2023-24', 'Semester-2', '3', 'Sampriti', 'D', '4', 'Male', 'harsh@gmail.com', '373310296', 'Jalgaon')

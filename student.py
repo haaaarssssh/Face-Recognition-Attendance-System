@@ -228,7 +228,7 @@ class Student:
         #upload_photo_btn = Button(button2_frame,text="Upload Photo Sample",font=('Quicksand',12),bg="deep sky blue",fg='white', width=39)
         #upload_photo_btn.grid(row=1,column=1)
 
-        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='#FFC470',fg='white')
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white')
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
 
 

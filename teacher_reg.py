@@ -15,6 +15,7 @@ class Teacherregistry:
         self.root = root
         self.root.geometry("1920x1020+0+0")
         self.root.title("Teacher Registration")
+        self.root.configure(background='lightblue')
 
         #variables
         self.var_name = StringVar()
@@ -134,6 +135,13 @@ class Teacherregistry:
         reset_btn = Button(button1_frame,command=self.reset,text="Reset",font=('Quicksand',12),bg="deep sky blue",fg='white', width=19)
         reset_btn.grid(row=0,column=3)
 
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
+        close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
+
+
+    def exit(self):
+        self.root.destroy()
+
     def save(self):
         if self.var_branch.get() != '' or self.var_confirm_password.get() != '' or self.var_name.get() != '' or self.var_password.get() != '' or self.var_semester.get() != '' or self.var_teacher_id.get() != '' or self.var_subject.get() != '':
             if self.var_password.get() != self.var_confirm_password.get():
@@ -235,6 +243,7 @@ class Teacherregistry:
         self.var_subject.set(''),
         self.var_password.set(''),
         self.var_teacher_id.set('')
+        self.var_confirm_password.set('')
     
 
     def get_cursor(self,event=''):

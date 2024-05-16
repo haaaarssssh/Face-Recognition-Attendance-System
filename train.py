@@ -36,8 +36,12 @@ class Train:
         train_button_2 = Button(self.root,text="TRAIN THE DATA ",command=self.train_classifier,cursor="hand2",font=('Quicksand',15),bg='Black',fg='white')
         train_button_2.place(relx=0.5, rely=0.65, anchor='center',width=720,height=40)
 
-        back_button_2 = Button(self.root,command=self.exit,text="Back",cursor="hand2",font=('Quicksand',15),bg='Black',fg='white')
-        back_button_2.place(relx=0.1, rely=0.9, anchor='center',width=220,height=40)
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
+        close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
+
+
+    def exit(self):
+        self.root.destroy()
 
 
     def train_classifier(self):
@@ -65,8 +69,7 @@ class Train:
         cv2.destroyAllWindows()
         messagebox.showinfo("Result","Training Successful",parent=self.root)
 
-    def exit(self):
-        self.root.destroy()
+    
 
 
 

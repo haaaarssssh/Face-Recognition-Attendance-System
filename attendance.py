@@ -15,6 +15,7 @@ from datetime import datetime
 from mtcnn import MTCNN
 import csv
 import pandas as pd
+from teacher_data import teacher_data
 
 
 
@@ -29,6 +30,7 @@ class Attendance2:
         self.var_semester = StringVar()
         self.var_teacher = StringVar()
         self.var_subject = StringVar()
+        self.var_branch = StringVar()
 
         name_lbl=Label(self.root,text="Take Attendance ",font=('Quicksand',36),fg='black',bg='lightblue')
         name_lbl.place(relx=0.5, rely=0.05, anchor='center')
@@ -43,14 +45,19 @@ class Attendance2:
         dpt_label=Label(self.root,text="Department",font=('Quicksand',12),background='lightblue',foreground='black')
         dpt_label.place(relx = 0.35,rely = 0.2)
 
-        dpt_entry=ttk.Entry(self.root,width=60,font=('Quicksand',12,'italic'))
+        dpt_entry=ttk.Entry(self.root,textvariable=self.var_branch,width=60,font=('Quicksand',12,'italic'))
         dpt_entry.place(relx = 0.35,rely = 0.225)
 
         div_label=Label(self.root,text="Division",font=('Quicksand',12),background='lightblue',foreground='black')
         div_label.place(relx = 0.35,rely = 0.3)
 
-        div_entry=ttk.Entry(self.root,textvariable=self.var_div,width=60,font=('Quicksand',12,'italic'))
-        div_entry.place(relx = 0.35,rely = 0.325)
+        div_combo = ttk.Combobox(self.root,textvariable=self.var_div,font=('Quicksand',12,'italic'),width=17,state='readonly')
+        div_combo['values']=('Select Division', "A","B","C","D")
+        div_combo.current(0)
+        div_combo.place(relx=0.35, rely=0.325)
+
+        #div_entry=ttk.Entry(self.root,textvariable=self.var_div,width=60,font=('Quicksand',12,'italic'))
+        #div_entry.place(relx = 0.35,rely = 0.325)
 
         semester_label=Label(self.root,text="Semester",font=('Quicksand',12),background='lightblue',foreground='black')
         semester_label.place(relx = 0.35,rely = 0.4)
@@ -76,12 +83,29 @@ class Attendance2:
         take_attendance_btn = Button(self.root,command=self.face_recog,text="Take Attendance",font=('Quicksand',12),bg="green",fg='white', width=60)
         take_attendance_btn.place(relx = 0.35,rely = 0.7)
 
-        back_button_2 = Button(self.root,command=self.exit,text="Back",cursor="hand2",font=('Quicksand',15),bg='Black',fg='white')
-        back_button_2.place(relx=0.1, rely=0.9, anchor='center',width=220,height=40)
+       
+
+    
+
+        self.var_teacher.set(teacher_data[0])
+        self.var_branch.set(teacher_data[1])
+        self.var_semester.set(teacher_data[2])
+        self.var_subject.set(teacher_data[3])
+
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
+        close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
 
 
+    def exit(self):
+        self.root.destroy()
 
     def mark_attendance(self, i, r, n, d):
+        name = teacher_data[0]
+        branch = teacher_data[1]
+        semester = teacher_data[2]
+        subject = teacher_data[3]
+        
+
         now = datetime.now()
         d1 = now.strftime("%d/%m/%Y")
         dString = now.strftime("%H:%M:%S")
@@ -95,7 +119,7 @@ class Attendance2:
         # Write attendance data
         with open("atd.csv", "a", newline="\n") as f:
             writer = csv.writer(f)
-            writer.writerow([i, r, n, d,self.var_semester.get(),self.var_div.get(),self.var_teacher.get(),self.var_subject.get(), dString, d1, "Present",])
+            writer.writerow([i, r, n, branch,semester,self.var_div.get(),name,subject, dString, d1, "Present",])
 
 
     def generate_excel(self):
@@ -250,8 +274,7 @@ class Attendance2:
         #self.generate_excel()
 
 
-    def destroy(self):
-        self.root.destroy()
+    
 
 
     def video_atd(self):
