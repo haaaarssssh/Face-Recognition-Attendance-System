@@ -1,17 +1,10 @@
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
 from tkinter import messagebox
 from tkinter import *
-from tkinter import ttk,filedialog
 import tkinter as tk
-import os
 import mysql.connector
-import pandas as pd
-import matplotlib.pyplot as plt
-from studentviz import Studentinfo
 from student_data import student_data
-import time
+
 from main import Attendance
 
 

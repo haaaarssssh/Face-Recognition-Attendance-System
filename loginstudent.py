@@ -1,17 +1,9 @@
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
 from tkinter import messagebox
 from tkinter import *
-from tkinter import ttk,filedialog
 import tkinter as tk
-import os
 import mysql.connector
-import pandas as pd
-import matplotlib.pyplot as plt
-from studentviz import Studentinfo
 from student_data import student_data
-import time
 
 
 class StudentLogin:
@@ -84,24 +76,10 @@ class StudentLogin:
                 import studentviz 
                 studentviz.Studentinfo(self.root,self.student_data)
 
-
-           
-
-                
-        
-        
-
         except Exception as e:
             messagebox.showerror("Error", f"Database error: {str(e)}", parent=self.root)
 
         
-
-    # def info(self):
-    #     self.new_window = Toplevel(self.root)
-    #     self.app=Studentinfo(self.new_window,student_data)
-
-    
-
 if __name__ =="__main__":
     root=Tk()
 

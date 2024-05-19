@@ -1,9 +1,5 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
-import os
-from tkinter import messagebox, filedialog
-import tkinter as tk
 from admin_login import AdminLogin
 from teacherlogin import Login
 from studentlogin import Studentlogin

@@ -1,25 +1,10 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
-from tkinter import messagebox
 from tkinter import *
-from tkinter import ttk,filedialog
 from PIL import Image, ImageTk
-from tkinter import messagebox
-import mysql.connector
-import cv2
-import os
-import numpy as np
 from time import strftime
-from datetime import datetime
-from mtcnn import MTCNN
-import csv
-import pandas as pd
 from teacher_reg import Teacherregistry
 from teacherlogincred_copy import Teachercred
-
-
-
 
 
 class Login:
@@ -52,13 +37,6 @@ class Login:
         teacher_log_button_2 = Button(self.root,command=self.teacherlog,text="Login",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
         teacher_log_button_2.place(relx=0.65, rely=0.57, anchor='center',width=220,height=40)
         
-
-        '''teacher_register_btn = Button(self.root,command=self.register,text="Teacher Registration",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
-        teacher_register_btn.place(relx = 0.4,rely=0.4)
-
-        teacher_login_btn = Button(self.root,text="Teacher Login",command=self.teacherlog,font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
-        teacher_login_btn.place(relx = 0.4,rely=0.5)
-'''
         close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
 

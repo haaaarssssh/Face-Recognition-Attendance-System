@@ -1,24 +1,9 @@
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter import messagebox
-from tkinter import *
-from tkinter import ttk,filedialog
-from PIL import Image, ImageTk
 from tkinter import messagebox
 import mysql.connector
-import cv2
 import os
-import numpy as np
 from time import strftime
-from datetime import datetime
-from mtcnn import MTCNN
-import csv
-import pandas as pd
-
 import tkinter as tk
-
-
 
 
 class Teachercred:
@@ -81,7 +66,6 @@ class Teachercred:
             if self.teacher_data:
                 self.name, self.branch, self.semester, self.subject = self.teacher_data  # Unpack the fetched data into variables
                 
-
                 messagebox.showinfo("Login Successful",
                                     f"Welcome, {self.name}!\nBranch: {self.branch}\nSemester: {self.semester}\nSubject: {self.subject}")
                 
@@ -90,25 +74,16 @@ class Teachercred:
                         file.write(f"teacher_data = {self.teacher_data}")
                         # Do not write to the file again
                         self.teacher_data_written = True
+
                 elif not getattr(self, 'teacher_data_written', False):
                     with open("teacher_data.py", "w") as file:
                         file.write(f"teacher_data = {self.teacher_data}")
                         self.teacher_data_written = True
-
-
                 self.chooseoptions()
-                
                 return self.teacher_data 
-                # print(self.teacher_data,"<------- 1")
-                # Now you have the name, branch, semester, and subject stored in variables
-                # You can use these variables as needed in your application
-                
-
-                
-        
+            
             else:
                 messagebox.showerror("Login Failed", "Invalid Teacher ID or Password")
-
                 self.conn.close()
 
         

@@ -1,14 +1,6 @@
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter import messagebox
-from tkinter import *
-from tkinter import ttk,filedialog
 from attendance import Attendance2
 from attendance_files import Excel
-
-
-
 
 
 class ChooseOperations:
@@ -30,7 +22,6 @@ class ChooseOperations:
         close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
 
-
     def exit(self):
         self.root.destroy()
 
@@ -42,10 +33,6 @@ class ChooseOperations:
     def take_attendance(self):
         self.new_window = Toplevel(self.root)
         self.app = Attendance2(self.new_window)
-
-
-    
-         
 
 if __name__ =="__main__":
     root=Tk()

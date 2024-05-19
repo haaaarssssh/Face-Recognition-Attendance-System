@@ -1,14 +1,12 @@
 from tkinter import *
-from tkinter import ttk, messagebox
-# from student_data import student_data
-with open("test.txt",'r') as f:
-    student_data = f.read().split(',')
+from tkinter import messagebox
 import os
 import pandas as pd
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-
+with open("test.txt",'r') as f:
+    student_data = f.read().split(',')
 
 
 class Studentinfo:

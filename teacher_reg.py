@@ -1,11 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
-from student import Student
-import os
-from train import Train
-from attendance_files import Excel
-from attendance import Attendance2
 from tkinter import messagebox
 import mysql
 import mysql.connector
@@ -92,14 +86,24 @@ class Teacherregistry:
         branch_label=Label(left_frame,text="Branch",font=('Quicksand',12),background='#d8dbe2',foreground='black')
         branch_label.grid(row=4,column=0,padx=10,pady=10,sticky=W)
 
-        branch_entry = ttk.Entry(left_frame,textvariable=self.var_branch,width=60,font=('Quicksand',12,'italic'))
-        branch_entry.grid(row=4,column=1,padx=10,sticky=W)
+        branch_combo = ttk.Combobox(left_frame,textvariable=self.var_branch,font=('Quicksand',12,'italic'),width=17,state='readonly')
+        branch_combo['values']=('Select Branch', "Computer","IT",'Civil','Mechanical')
+        branch_combo.current(0)
+        branch_combo.grid(row=4,column=1,padx=2,pady=10,sticky=W)
+
+        '''branch_entry = ttk.Entry(left_frame,textvariable=self.var_branch,width=60,font=('Quicksand',12,'italic'))
+        branch_entry.grid(row=4,column=1,padx=10,sticky=W)'''
 
         semester_label=Label(left_frame,text="Semester",font=('Quicksand',12),background='#d8dbe2',foreground='black')
         semester_label.grid(row=6,column=0,padx=10,pady=10,sticky=W)
 
-        semester_entry = ttk.Entry(left_frame,textvariable=self.var_semester,width=60,font=('Quicksand',12,'italic'))
-        semester_entry.grid(row=6,column=1,padx=10,sticky=W)
+        semester_combo = ttk.Combobox(left_frame,textvariable=self.var_semester,font=('Quicksand',12,'italic'),width=17,state='readonly')
+        semester_combo['values']=('Select Semester', "1","2",'3','4',"5","6","7","8")
+        semester_combo.current(0)
+        semester_combo.grid(row=6,column=1,padx=2,pady=10,sticky=W)
+
+        '''semester_entry = ttk.Entry(left_frame,textvariable=self.var_semester,width=60,font=('Quicksand',12,'italic'))
+        semester_entry.grid(row=6,column=1,padx=10,sticky=W)'''
 
         subject_label=Label(left_frame,text="Subject",font=('Quicksand',12),background='#d8dbe2',foreground='black')
         subject_label.grid(row=8,column=0,padx=10,pady=10,sticky=W)

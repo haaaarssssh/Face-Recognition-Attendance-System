@@ -1,15 +1,10 @@
 from tkinter import *
 from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter import messagebox
 from tkinter import *
 from tkinter import ttk,filedialog
-from PIL import Image, ImageTk
-from tkinter import messagebox
 import mysql.connector
 import cv2
 import os
-import numpy as np
 from time import strftime
 from datetime import datetime
 from mtcnn import MTCNN
@@ -45,13 +40,18 @@ class Attendance2:
         dpt_label=Label(self.root,text="Department",font=('Quicksand',12),background='lightblue',foreground='black')
         dpt_label.place(relx = 0.35,rely = 0.2)
 
-        dpt_entry=ttk.Entry(self.root,textvariable=self.var_branch,width=60,font=('Quicksand',12,'italic'))
-        dpt_entry.place(relx = 0.35,rely = 0.225)
+        dep_combo = ttk.Combobox(self.root,textvariable=self.var_branch,font=('Quicksand',12,'italic'),width=58,state='readonly')
+        dep_combo['values']=('Select Department', "Computer","IT",'Civil','Mechanical')
+        dep_combo.current(0)
+        dep_combo.place(relx = 0.35,rely = 0.225)
+
+        '''dpt_entry=ttk.Entry(self.root,textvariable=self.var_branch,width=60,font=('Quicksand',12,'italic'))
+        dpt_entry.place(relx = 0.35,rely = 0.225)'''
 
         div_label=Label(self.root,text="Division",font=('Quicksand',12),background='lightblue',foreground='black')
         div_label.place(relx = 0.35,rely = 0.3)
 
-        div_combo = ttk.Combobox(self.root,textvariable=self.var_div,font=('Quicksand',12,'italic'),width=17,state='readonly')
+        div_combo = ttk.Combobox(self.root,textvariable=self.var_div,font=('Quicksand',12,'italic'),width=58,state='readonly')
         div_combo['values']=('Select Division', "A","B","C","D")
         div_combo.current(0)
         div_combo.place(relx=0.35, rely=0.325)
@@ -62,8 +62,13 @@ class Attendance2:
         semester_label=Label(self.root,text="Semester",font=('Quicksand',12),background='lightblue',foreground='black')
         semester_label.place(relx = 0.35,rely = 0.4)
 
-        semester_entry=ttk.Entry(self.root,textvariable=self.var_semester,width=60,font=('Quicksand',12,'italic'))
-        semester_entry.place(relx = 0.35,rely = 0.425)
+        dep_combo = ttk.Combobox(self.root,textvariable=self.var_semester,font=('Quicksand',12,'italic'),width=58,state='readonly')
+        dep_combo['values']=('Select Department', "1","2",'3','4')
+        dep_combo.current(0)
+        dep_combo.place(relx = 0.35,rely = 0.425)
+
+        '''semester_entry=ttk.Entry(self.root,textvariable=self.var_semester,width=60,font=('Quicksand',12,'italic'))
+        semester_entry.place(relx = 0.35,rely = 0.425)'''
         
         subject_label=Label(self.root,text="Subject",font=('Quicksand',12),background='lightblue',foreground='black')
         subject_label.place(relx = 0.35,rely = 0.5)

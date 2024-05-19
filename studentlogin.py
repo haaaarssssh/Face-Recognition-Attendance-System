@@ -1,24 +1,7 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
-from tkinter import messagebox
-from tkinter import *
-from tkinter import ttk,filedialog
-from PIL import Image, ImageTk
-from tkinter import messagebox
-import mysql.connector
-import cv2
-import os
-import numpy as np
 from time import strftime
-from datetime import datetime
-from mtcnn import MTCNN
-import csv
-import pandas as pd
-from student import Student
 from loginstudent import StudentLogin
-
-
 
 
 class Studentlogin:
@@ -39,10 +22,6 @@ class Studentlogin:
 
         student_button_2 = Button(self.root,command=self.login,text="Student",cursor="hand2",font=('Quicksand',15),bg='Crimson',fg='white')
         student_button_2.place(relx=0.50, rely=0.57, anchor='center',width=220,height=40)
-        
-
-        '''student_login_btn = Button(self.root,command=self.login,text="Student Login",font=('Quicksand',12),bg="deep sky blue",fg='white', width=40)
-        student_login_btn.place(relx = 0.4,rely=0.5)'''
 
         close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
         close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)

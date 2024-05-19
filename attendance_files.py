@@ -74,13 +74,17 @@ class Excel:
         gen_csv = Button(main_frame, command=self.req_file, text="Download Excel", font=('Quicksand', 12), bg="black", fg='white', width=15)
         gen_csv.grid(row=6, columnspan=2, pady=30)
 
-        back_button_2 = Button(self.root,command=self.exit,text="Back",cursor="hand2",font=('Quicksand',15),bg='Black',fg='white')
-        back_button_2.place(relx=0.1, rely=0.9, anchor='center',width=220,height=40)
-
         self.var_teacher.set(teacher_data[0])
         self.var_department.set(teacher_data[1])
         #self.var_semester.set(teacher_data[2])
         self.var_subject.set(teacher_data[3])
+
+        close_button_2 = Button(self.root,command=self.exit,text="Close",cursor="hand2",font=('Quicksand',15),bg='black',fg='white',borderwidth=5)
+        close_button_2.place(relx=0.5, rely=0.9, anchor='center',width=220,height=40)
+
+
+    def exit(self):
+        self.root.destroy()
 
    
 
@@ -184,9 +188,7 @@ class Excel:
 
 # Assuming this is a method in a class, we need to handle the 'self' parameter appropriately
 
-    def exit(self):
-        self.root.destroy()
-
+   
 if __name__ == "__main__":
     root = Tk()
     app = Excel(root)

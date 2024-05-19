@@ -1,23 +1,7 @@
 from tkinter import *
-from tkinter import ttk
-from PIL import Image, ImageTk
-from tkinter import messagebox
-from tkinter import *
-from tkinter import ttk,filedialog
-from PIL import Image, ImageTk
-from tkinter import messagebox
-import mysql.connector
-import cv2
-import os
-import numpy as np
 from time import strftime
-from datetime import datetime
-from mtcnn import MTCNN
-import csv
-import pandas as pd
 from student import Student
 from teacher_reg import Teacherregistry
-
 
 
 class Login:

@@ -1,17 +1,9 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
-import mysql.connector
 import cv2
 import os
 import numpy as np
-
-
-
-
-
-
 
 
 class Train:
@@ -68,28 +60,6 @@ class Train:
         clf.write("classifier1.xml")
         cv2.destroyAllWindows()
         messagebox.showinfo("Result","Training Successful",parent=self.root)
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ =="__main__":

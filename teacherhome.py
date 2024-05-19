@@ -1,17 +1,9 @@
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
-from student import Student
-import os
-from train import Train
-from attendance_files import Excel
 from attendance import Attendance2
-from teacherlogin import Login
-from studentlogin import Studentlogin
-from teacherlogin import Login
 from teacherlogincred_copy import Teachercred,Attendance2
-
 from tkinter import Tk
+
 
 class Attendance:
     def __init__(self, root):
