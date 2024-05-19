@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 from admin_login import AdminLogin
-from teacherlogin import Login
+from teacherlogin2 import Login2
 from studentlogin import Studentlogin
 
 class Admin:
@@ -41,7 +41,7 @@ class Admin:
         student_button = student_button.resize((220, 220))
         self.photostudent_button = ImageTk.PhotoImage(student_button)
 
-        student_button_1 = Button(self.root,command=self.student, image=self.photoadmin_button, cursor="hand2")
+        student_button_1 = Button(self.root,command=self.student, image=self.photostudent_button, cursor="hand2")
         student_button_1.place(relx=0.75, rely=0.4, anchor='center', width=220, height=220)
 
         student_button_2 = Button(self.root ,command=self.student, text="Student", cursor="hand2", font=('Quicksand', 15), bg='Crimson', fg='white')
@@ -64,7 +64,7 @@ class Admin:
     
     def teacher(self):
         self.new_window = Toplevel(self.root)
-        self.app = Login(self.new_window)
+        self.app = Login2(self.new_window)
 
 
 

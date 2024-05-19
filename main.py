@@ -5,7 +5,7 @@ import os
 from train import Train
 from attendance_files import Excel
 from attendance import Attendance2
-from teacherlogin import Login
+from teacherlogin2 import Login2
 from studentlogin import Studentlogin
 from teacherlogin import Login
 
@@ -155,7 +155,7 @@ class Attendance:
 
     def teacherlog(self):
         self.new_window = Toplevel(self.root)
-        self.app = Login(self.new_window)
+        self.app = Login2(self.new_window)
 
    
 

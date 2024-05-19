@@ -1,1 +1,1 @@
-teacher_data = ('', '', 4, '')
+teacher_data = ('7', '8', 9, '9')
